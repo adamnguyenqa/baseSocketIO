@@ -11,6 +11,7 @@ app.get("/", (req, res) => {
 
 io.on("connection", (socket) => {
   console.log(`Connected id: ${socket.id}`);
+  io.emit("connect id", socket.id);
 
   socket.on("disconnect", () => {
     console.log("Disconnected id: ", socket.id);
